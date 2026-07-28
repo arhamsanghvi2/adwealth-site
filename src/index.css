@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand-black: #000000;
+  --color-brand-dark: #fafafa;
+  --color-brand-charcoal: #ffffff;
+  --color-brand-gray: #f5f5f7;
+  --color-brand-light-gray: #e5e5e7;
+  --color-brand-silver: #171717;
+  --color-brand-white: #ffffff;
+  --color-brand-muted: #737373;
+  
+  --font-sans: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+}
+
+/* Custom global rules */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #ffffff;
+  }
+  
+  body {
+    background-color: #ffffff;
+    color: #171717;
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* Custom thin scrollbar - Light Mode */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #e5e5e5;
+    border-radius: 3px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #d4d4d4;
+  }
+
+  /* Chrome, Safari, Edge, Opera: hide spin buttons */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox: hide spin buttons */
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+}
+
+/* Glassmorphism card utilities - Light Mode */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+}
+
+/* Glow effects - Light Mode */
+.glow-spot {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(0,0,0,0.01) 0%, rgba(0,0,0,0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Custom text clip for premium headlines */
+.text-gradient {
+  background: linear-gradient(135deg, #000000 30%, #52525b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
