@@ -188,6 +188,15 @@ app.get('/api/applications', (req, res) => {
   });
 });
 
+// Serve the React build
+app.use(express.static(path.join(__dirname, "dist")));
+
+app.get("*", (req, res) => {
+  if (!req.path.startsWith("/api")) {
+    res.sendFile(path.join(__dirname, "dist", "index.html"));
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
